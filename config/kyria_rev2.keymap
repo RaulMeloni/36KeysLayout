@@ -20,10 +20,39 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&lt 1 ESCAPE   &kp Q       &kp W            &kp E                &kp R             &kp SQT                                                             &kp T    &kp Y             &kp U        &kp I            &kp O           &kp P
-&kp MINUS      &mt LWIN A  &mt RIGHT_ALT S  &mt RIGHT_CONTROL D  &mt LEFT_SHIFT F  &lt 2 LEFT_BRACKET                                                  &lt 2 G  &mt LEFT_SHIFT H  &mt LCTRL J  &mt RIGHT_ALT K  &mt LEFT_WIN L  &kp SEMICOLON
-&kp BACKSLASH  &kp Z       &kp X            &kp C                &kp V             &kp RIGHT_BRACKET   &none      &none          &none      &kp GRAVE  &kp B    &kp N             &kp M        &kp COMMA        &kp PERIOD      &kp SLASH
-                                            &none                &none             &kp TAB             &kp ENTER  &kp BACKSPACE  &kp EQUAL  &kp SPACE  &none    &none             &none
+&lt 4 ESCAPE   &kp Q       &kp W            &kp E                &kp R             &kp SQT                                                            &kp T    &kp Y             &kp U        &kp I            &kp O           &kp P
+&kp MINUS      &mt LWIN A  &mt RIGHT_ALT S  &mt RIGHT_CONTROL D  &mt LEFT_SHIFT F  &lt 2 LEFT_BRACKET                                                 &lt 1 G  &mt LEFT_SHIFT H  &mt LCTRL J  &mt RIGHT_ALT K  &mt LEFT_WIN L  &kp SEMICOLON
+&kp BACKSLASH  &kp Z       &kp X            &kp C                &kp V             &lt 3 RIGHT_BRACKET  &none          &none    &none      &kp GRAVE  &kp B    &kp N             &kp M        &kp COMMA        &kp PERIOD      &kp SLASH
+                                            &none                &none             &kp TAB              &kp BACKSPACE  &kp RET  &kp EQUAL  &kp SPACE  &none    &none             &none
+            >;
+        };
+
+        number_layer {
+            bindings = <
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                    &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "num";
+        };
+
+        function_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6
+&trans  &trans  &trans  &trans  &trans  &trans                                  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        arrow_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans    &trans    &trans  &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans     &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
             >;
         };
 
@@ -42,17 +71,6 @@
             >;
 
             label = "bt";
-        };
-
-        number_layer {
-            bindings = <
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                                  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6
-&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0                                  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
-                                    &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-
-            label = "num";
         };
     };
 };
