@@ -72,5 +72,14 @@
 
             label = "bt";
         };
+
+        gaming_layer {
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp E   &kp R   &kp APOS                                     &kp T   &kp Y   &kp U   &kp I      &kp O    &kp P
+&kp MINUS  &kp A  &kp S  &kp D   &kp F   &kp LBKT                                     &kp G   &kp H   &kp J   &kp K      &kp L    &kp SEMI
+&kp BSLH   &kp Z  &kp X  &kp C   &kp V   &kp RBKT  &trans  &trans  &trans  &trans     &kp B   &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH
+                         &trans  &trans  &kp TAB   &trans  &trans  &trans  &kp SPACE  &trans  &trans  &trans
+            >;
+        };
     };
 };
