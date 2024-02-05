@@ -1,94 +1,105 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/keys.h>
 
-
-&mt {
-    flavor = "tap-preferred";
-    tapping_term_ms = <200>;
-};
-
-&mmv {
-   time-to-max-speed-ms = <680>;
-   acceleration-exponent=<2>;
-};
-/ { 
-
-
+/ {
     behaviors {
-        hm: homerow_mods {
+        holdTap_behaviour: holdTap_behaviour {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
+            label = "HOLDTAP_BEHAVIOUR";
+            bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            quick-tap-ms = <0>;
+            flavor = "balanced";
         };
-	td: tapdance {
+
+        layerTap_behavior: layerTap_behavior {
             compatible = "zmk,behavior-hold-tap";
-            label = "TAPDANCE";
+            label = "LAYERTAP_BEHAVIOR";
+            bindings = <&mo>, <&kp>;
+
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "balanced";
         };
     };
 
-        keymap {
-                compatible = "zmk,keymap";
-                
-       		default_layer {
-		bindings = <
-		&kp Y &kp C &kp L &kp M &kp K 						&kp Z &kp F  &kp U    &td MINUS COMMA  &kp BKSP 
-		&kp I &kp S &hm LALT R &hm LGUI T &kp G 			       	&kp P &hm RGUI N &hm RALT E &kp A &kp O
-		&kp Q &kp V &kp W &kp D &kp J				        &kp B &kp H  &td UNDERSCORE SLASH &td EXCL DOT &kp X
-          				&mt LC(LS(LALT)) SPC &sk LSHIFT  				&sk RCTRL &to 1
-		>;
-		};
+    keymap {
+        compatible = "zmk,keymap";
 
-       		left_layer {
-		bindings = <
-		&kp ESC  &kp ATSN   &td LC(LG(LS(N4))) LS(N3) &kp DLLR    &kp PRCNT		&kp CARET &kp LS(COMMA) &kp LS(DOT) &kp SEMI &kp BKSP 
-		&kp TAB    &kp EQUAL    &kp LA(RBKT)      &kp LA(LS(RBKT))     &kp SQT 		&kp BSLH &kp LBRC  &kp RBRC &kp PIPE  &kp ENTER
-		&kp TILDE    &kp LA(N3) 	&kp LA(LBKT) &kp LA(LS(LBKT))  &kp DQT 	&kp LBKT &kp LPRN &kp RPRN &kp RBKT  &to 3 
-					    &to 0  &sk LSHIFT  					&sk RALT &to 2 
-		>;
-		};
-		
-		right_layer {
-		bindings = <
-		&kp ESC  &kp C_PP &kp C_PREV  &kp C_NEXT  &kp LS(MINUS)    			&kp MINUS  &kp N7 &kp N8 &kp N9 &trans
-		&kp TAB  &trans   &kp C_VOL_DN  &kp C_VOL_UP  &kp LS(EQUAL) 			&kp EQUAL &kp N4  &kp N5  &kp N6   &kp ENTER
-		&to 4  &kp AMPS &kp SLASH &kp STAR &kp DOT    			&kp N0 &kp N1 &kp N2 &kp N3  &trans 
-					  &to 0 &sk LGUI  				&sk RALT  &to 2 
-		>;
-		};
-		
-		tri_layer {
-		bindings = <
-		&trans  &mwh SCROLL_LEFT    &mmv MOVE_UP    &mwh SCROLL_RIGHT    &kp NUM_5 			&kp LG(LBKT)   &kp LC(LS(TAB))   &kp RC(TAB) &kp LG(RBKT) &trans
-		&kp F1 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp DEL  						&kp LEFT &kp DOWN  &kp UP &kp RIGHT &kp ENTER 
-		&td LG(GRAVE) GRAVE &mkp RCLK  &mwh SCROLL_UP &mwh SCROLL_DOWN &trans   				&mkp LCLK &kp PG_DN  &kp K_VOL_DN  &trans &trans   
-					 &to 0 &trans  					&sk RALT &to 1 
-		>;
-		};	
-		bt {
-		bindings = <
-		&trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-		&trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-		&bt BT_PRV  &bt BT_NXT &bt BT_CLR &trans &trans   				&trans &trans  &trans  &trans &trans   
-					 &to 0 &trans  					&trans &to 1 
-		>;
-		};	
-        
-	};
+        default_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
+            // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | LAYER 1 | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
+            //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+
+            bindings = <
+&layerTap_behavior 4 ESCAPE  &kp Q                          &kp W                          &kp E                       &kp R                            &kp SQT                                                                               &kp T                   &kp Y                            &kp U                       &kp I                          &kp O                          &kp P
+&kp MINUS                    &holdTap_behaviour LEFT_GUI A  &holdTap_behaviour LEFT_ALT S  &holdTap_behaviour LCTRL D  &holdTap_behaviour LEFT_SHIFT F  &layerTap_behavior 3 LEFT_BRACKET                                                     &layerTap_behavior 1 G  &holdTap_behaviour LEFT_SHIFT H  &holdTap_behaviour LCTRL J  &holdTap_behaviour LEFT_ALT K  &holdTap_behaviour LEFT_GUI L  &kp SEMICOLON
+&kp BACKSLASH                &kp Z                          &kp X                          &kp C                       &kp V                            &layerTap_behavior 2 RIGHT_BRACKET  &kp C_PLAY_PAUSE  &none    &none      &kp C_MUTE  &kp B                   &kp N                            &kp M                       &kp COMMA                      &kp PERIOD                     &kp SLASH
+                                                                                           &none                       &kp INS                          &kp TAB                             &kp BACKSPACE     &kp RET  &kp GRAVE  &kp SPACE   &kp EQUAL               &kp DELETE                       &kp RALT
+            >;
+        };
+
+        number_layer {
+            bindings = <
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                    &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "num";
+        };
+
+        function_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6
+&trans  &trans  &trans  &trans  &trans  &trans                                  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        arrow_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp HOME  &kp PAGE_UP  &kp PAGE_DOWN  &kp END    &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp LEFT  &kp DOWN     &kp UP         &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans       &trans         &trans     &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
+            >;
+        };
+
+        bluetooth_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |       |      |BT_CLR|BTSEL0|BTSEL1|BTSEL2|                                         |      |      |      |      |      |      |
+            // |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      |
+            // |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+            //                       |      |      |      |      |      |      |      |      |      |      |      |      |
+
+            bindings = <
+&none  &none         &none         &none         &none         &none                                     &none       &none  &none  &none  &none  &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                              &bt BT_CLR  &none  &none  &none  &none  &none
+&none  &none         &none         &none         &none         &none         &none  &none  &none  &none  &none       &none  &none  &none  &none  &none
+                                   &none         &none         &none         &none  &none  &none  &none  &none       &none  &none
+            >;
+
+            label = "bt";
+        };
+
+        gaming_layer {
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp E   &kp R   &kp APOS                                         &kp T   &kp Y   &kp U   &kp I      &kp O    &kp P
+&kp MINUS  &kp A  &kp S  &kp D   &kp F   &kp LBKT                                         &kp G   &kp H   &kp J   &kp K      &kp L    &kp SEMI
+&kp BSLH   &kp Z  &kp X  &kp C   &kp V   &kp RBKT  &none      &trans   &trans  &trans     &kp B   &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH
+                         &trans  &trans  &kp LALT  &kp LSHFT  &kp TAB  &trans  &kp SPACE  &trans  &trans  &trans
+            >;
+        };
+    };
 };
