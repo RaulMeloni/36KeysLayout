@@ -27,6 +27,14 @@
             quick-tap-ms = <0>;
             flavor = "balanced";
         };
+
+        tap_dance_behavior: tap_dance_behavior {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_BEHAVIOR";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            tapping-term-ms = <150>;
+        };
     };
 
     keymap {
@@ -40,10 +48,10 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&none  &kp Y  &kp C  &kp L  &kp M  &kp K                                                    &kp Z      &kp F  &kp U     &kp COMMA  &kp DEL  &none
-&none  &kp I  &kp S  &kp R  &kp T  &kp G                                                    &kp P      &kp N  &kp E     &kp A      &kp O    &none
-&none  &kp Q  &kp V  &kp W  &kp D  &kp J    &none           &none  &none  &none             &kp B      &kp H  &kp FSLH  &kp DOT    &kp X    &none
-                     &none  &none  &kp DEL  &kp LEFT_SHIFT  &none  &none  &kp LEFT_CONTROL  &kp SPACE  &none  &none
+&none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y                &kp DEL    &none
+&none  &kp A  &kp R  &kp S  &kp T  &kp G                                                      &kp M      &kp N  &kp E     &kp I                &kp O      &none
+&none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &tap_dance_behavior  &kp COMMA  &none
+                     &none  &none  &to 1  &kp LEFT_SHIFT  &kp ENTER  &none  &kp LEFT_CONTROL  &kp SPACE  &none  &none
             >;
         };
 
