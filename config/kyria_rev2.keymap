@@ -50,25 +50,34 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y                &kp DEL    &none
-&none  &kp A  &kp R  &kp S  &kp T  &kp G                                                      &kp M      &kp N  &kp E     &kp I                &kp O      &none
-&none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &tap_dance_behavior  &kp COMMA  &none
+&none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp DEL    &none
+&none  &kp A  &kp R  &kp S  &kp T  &kp G                                                      &kp M      &kp N  &kp E     &kp I    &kp O      &none
+&none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
                      &none  &none  &to 1  &kp LEFT_SHIFT  &kp ENTER  &none  &kp LEFT_CONTROL  &kp SPACE  &none  &none
+            >;
+        };
+
+        symbol_layer {
+            bindings = <
+&trans  &kp ESC &kp  &kp  &kp  &kp                                  &kp QMARK &kp SEMI  &kp LT &kp GT &trans  &trans
+&trans  &kp  &kp  &kp  &kp  &kp                                  &kp UNDER  &kp CARET &kp LBRC  &kp RBKT   &kp DLLR  &trans
+&trans  &to 2  &kp  &kp  &kp  &kp  &trans  &trans  &trans  &trans  &kp PRCNT &kp LBKT &kp LPRN &kp RPRN &kp RBKT   &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
             >;
         };
 
         number_layer {
             bindings = <
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp ESC  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                                  &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0                                  &kp N0  &kp N4  &kp N5  &kp N6  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
                                     &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             label = "num";
         };
 
-        function_layer {
+        functional_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6
 &trans  &trans  &trans  &trans  &trans  &trans                                  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
@@ -77,14 +86,6 @@
             >;
         };
 
-        arrow_layer {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp HOME  &kp PAGE_UP  &kp PAGE_DOWN  &kp END    &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp LEFT  &kp DOWN     &kp UP         &kp RIGHT  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans       &trans         &trans     &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
-            >;
-        };
 
         bluetooth_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
