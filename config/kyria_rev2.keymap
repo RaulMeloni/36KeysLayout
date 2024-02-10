@@ -51,7 +51,7 @@
 &none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp BSPC   &none
 &none  &kp A  &kp R  &kp S  &kp T  &kp G                                                      &kp M      &kp N  &kp E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
-                     &none  &none  &to 1  &kp LSHFT  &kp ENTER  &none  &kp LCTRL  &kp SPACE  &none  &none
+                     &none  &none  &to 1  &kp LSHFT  &kp ENTER  &none  &kp LCTRL  &mt LC(LS(LALT)) SPC  &none  &none
             >;
         };
 
@@ -64,7 +64,7 @@
 
             bindings = <
 &trans  &kp ESC   &kp AMPS  &kp NUBS  &kp EXCL  &kp HASH                                       &kp QMARK &kp SEMI  &kp LT   &kp GT   &trans   &trans
-&trans  &kp EQUAL &kp ATSN  &kp PIPE  &kp DQT   &kp SQT                                        &kp UNDER &kp CARET &kp LBRC &kp RBKT &kp DLLR &trans
+&trans  &kp EQUAL &kp ATSN  &kp PIPE  &kp DQT   &kp SQT                                        &kp UNDER &kp CARET &kp LBRC &kp RBRC &kp DLLR &trans
 &trans  &to 3     &kp GRAVE &kp TILDE &kp MINUS &kp PLUS &trans    &trans      &trans  &trans  &kp PRCNT &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
                             &trans    &trans    &to 2    &kp LALT  &trans      &trans  &trans  &to 0     &trans    &trans
             >;
@@ -78,10 +78,10 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &trans  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &mkp MB2                                 &kp LC(X) &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(UP)  &kp LA(RIGHT) &trans 
-&trans  &msc SCRL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &kp LC(C)  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
-&trans  &msc SCRL_DOWN  &trans  &trans  &trans  &trans  &trans  &trans                       &trans  &trans   &kp LC(V)  &kp LA(SPACE)  &trans  &trans   &to 4   &trans
-                                    &trans  &trans  &to 1  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
+&trans  &kp ESC  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &mkp MB2                                 &trans &trans  &trans  &trans  &trans &trans 
+&trans  &msc SCRL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
+&trans  &msc SCRL_DOWN  &trans  &trans  &trans  &trans  &trans  &trans                       &trans  &trans   &trans  &kp LA(SPACE)  &trans  &trans   &to 4   &trans
+                                    &trans  &trans  &to 1  &kp LALT  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
         };
 
@@ -93,10 +93,10 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &trans  &kp F1  &kp F2  &kp F3  &kp F4                                 &trans  &kp N7  &kp N8  &kp N9  &kp BSPC  &trans
+&trans  &kp ESC  &kp F1  &kp F2  &kp F3  &kp F4                                 &trans  &kp N7  &kp N8  &kp N9  &kp BSPC  &trans
 &trans  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9                                &kp N0  &kp N4  &kp N5  &kp N6  &trans  &trans
 &trans  &kp F10  &kp F11  &kp F12  &kp F13  &kp F14  &trans  &trans      &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
-                         &trans  &trans   &to 1  &trans  &trans          &trans  &trans  &to 0  &trans  &trans
+                         &trans  &trans   &to 1  &kp LALT  &trans          &trans  &trans  &to 0  &trans  &trans
             >;
 
             label = "num";
