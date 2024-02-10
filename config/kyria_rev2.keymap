@@ -50,19 +50,28 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp DEL    &none
+&none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp BSPC    &none
 &none  &kp A  &kp R  &kp S  &kp T  &kp G                                                      &kp M      &kp N  &kp E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
-                     &none  &none  &to 1  &kp LEFT_SHIFT  &kp ENTER  &none  &kp LEFT_CONTROL  &kp SPACE  &none  &none
+                     &none  &none  &to 1  &kp LSHFT  &kp ENTER  &none  &kp LCTRL  &kp SPACE  &none  &none
             >;
         };
 
         symbol_layer {
             bindings = <
-&trans  &kp ESC &kp  &kp  &kp  &kp                                  &kp QMARK &kp SEMI  &kp LT &kp GT &trans  &trans
-&trans  &kp  &kp  &kp  &kp  &kp                                  &kp UNDER  &kp CARET &kp LBRC  &kp RBKT   &kp DLLR  &trans
-&trans  &to 2  &kp  &kp  &kp  &kp  &trans  &trans  &trans  &trans  &kp PRCNT &kp LBKT &kp LPRN &kp RPRN &kp RBKT   &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
+&trans  &kp ESC &kp AMPS &kp NUBS &kp EXCL &kp HASH                                 &kp QMARK &kp SEMI  &kp LT &kp GT &trans  &trans
+&trans  &kp EQUAL &kp ATSN &kp PIPE &kp DQT &kp SQT                                 &kp UNDER  &kp CARET &kp LBRC  &kp RBKT  &kp DLLR  &trans
+&trans  &to 2  &kp GRAVE &kp TILDE &kp MINUS &kp PLUS &trans  &trans  &trans  &trans  &kp PRCNT &kp LBKT &kp LPRN &kp RPRN &kp RBKT   &trans
+                        &trans  &trans  &to 3  &kp LALT  &trans  &trans  &trans  &to 1  &trans    &trans
+            >;
+        };
+
+        functional_layer {
+            bindings = <
+&trans  &trans  &mwh SCROLL_LEFT  &mmv MOVE_UP  &mwh SCROLL_RIGHT  &mwh SCROLL_UP                                  &kp   &kp   &kp   &kp    &kp    &trans 
+&trans  &trans  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mwh SCROLL_DOWN                                  &kp   &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -75,15 +84,6 @@
             >;
 
             label = "num";
-        };
-
-        functional_layer {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6
-&trans  &trans  &trans  &trans  &trans  &trans                                  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
         };
 
 
