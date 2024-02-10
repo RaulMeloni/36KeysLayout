@@ -40,15 +40,14 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  //  |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-            // |  //  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-            // |  //  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | LAYER 1 | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
+            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
+            // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
+            // |  Z  |  X  |  C   |  D   |  V   |  //  |  //  |              |  //  |  //  |  N   |  M    |  ,    |  .   |   /   |  //  |
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp BSPC    &none
+&none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp BSPC   &none
 &none  &kp A  &kp R  &kp S  &kp T  &kp G                                                      &kp M      &kp N  &kp E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
                      &none  &none  &to 1  &kp LSHFT  &kp ENTER  &none  &kp LCTRL  &kp SPACE  &none  &none
@@ -56,6 +55,12 @@
         };
 
         symbol_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
+            // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
+            // |  Z  |  X  |  C   |  D   |  V   |  //  |  //  |              |  //  |  //  |  N   |  M    |  ,    |  .   |   /   |  //  |
+            //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+
             bindings = <
 &trans  &kp ESC   &kp AMPS  &kp NUBS  &kp EXCL  &kp HASH                                       &kp QMARK &kp SEMI  &kp LT   &kp GT   &trans   &trans
 &trans  &kp EQUAL &kp ATSN  &kp PIPE  &kp DQT   &kp SQT                                        &kp UNDER &kp CARET &kp LBRC &kp RBKT &kp DLLR &trans
@@ -65,15 +70,27 @@
         };
 
         functional_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
+            // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
+            // |  Z  |  X  |  C   |  D   |  V   |  //  |  //  |              |  //  |  //  |  N   |  M    |  ,    |  .   |   /   |  //  |
+            //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+
             bindings = <
 &trans  &trans  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &mkp MB2                                 &kp LC(X) &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(UP)  &kp LA(RIGHT) &trans 
 &trans  &msc SCRL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &kp LC(C)  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
-&trans  &msc SCRL_DOWN  &trans  &trans  &trans  &trans  &trans  &trans                              &kp LC(V)  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &msc SCRL_DOWN  &trans  &trans  &trans  &trans  &trans  &trans                       &trans  &trans   &kp LC(V)  &kp LA(SPACE)  &trans  &trans   &to 4   &trans
                                     &trans  &trans  &to 1  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
         };
 
-        number_layer {
+        numbered_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
+            // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
+            // |  Z  |  X  |  C   |  D   |  V   |  //  |  //  |              |  //  |  //  |  N   |  M    |  ,    |  .   |   /   |  //  |
+            //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+
             bindings = <
 &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F4 &kp F5                                 &trans  &kp N7  &kp N8  &kp N9  &kp BSPC  &trans
 &trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp F11                                 &kp N0  &kp N4  &kp N5  &kp N6  &trans  &trans
@@ -96,7 +113,7 @@
 &none  &none         &none         &none         &none         &none                                     &none       &none  &none  &none  &none  &none
 &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                              &bt BT_CLR  &none  &none  &none  &none  &none
 &none  &none         &none         &none         &none         &none         &none  &none  &none  &none  &none       &none  &none  &none  &none  &none
-                                   &none         &none         &none         &none  &none  &none  &none  &none       &none  &none
+                                   &none         &none         &none         &none  &none  &none  &none  &to 0       &none  &none
             >;
 
             label = "bt";
