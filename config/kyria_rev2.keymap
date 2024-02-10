@@ -66,9 +66,9 @@
 
         functional_layer {
             bindings = <
-&trans  &trans  &msc SCROLL_LEFT  &mmv MOVE_UP  &msc SCROLL_RIGHT  &mkp MB2                                 &kp LC(X) &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(UP)  &kp LA(RIGHT) &trans 
-&trans  &msc SCROLL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &kp LC(C)  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
-&trans  &msc SCROLL_DOWN  &trans  &trans  &trans  &trans  &trans  &trans                              &kp LC(V)  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &mkp MB2                                 &kp LC(X) &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(UP)  &kp LA(RIGHT) &trans 
+&trans  &msc SCRL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &kp LC(C)  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
+&trans  &msc SCRL_DOWN  &trans  &trans  &trans  &trans  &trans  &trans                              &kp LC(V)  &trans  &trans  &trans  &trans  &trans   &trans   &trans
                                     &trans  &trans  &to 1  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
         };
