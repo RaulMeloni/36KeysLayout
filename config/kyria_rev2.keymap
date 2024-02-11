@@ -20,7 +20,7 @@
         }
         float time_fraction = (float)duration_ms / config->time_to_max_speed_ms;
         return max_speed * powf(time_fraction, config->acceleration_exponent);
-    /*
+    */
 };
 
 / {
