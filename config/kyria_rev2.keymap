@@ -14,12 +14,12 @@
    acceleration-exponent=<0>; // if 0 it always goes at max speed, otherwise higher exponent more quickly it reaches max speed
 
     /*
-     if (duration_ms > config->time_to_max_speed_ms || config->time_to_max_speed_ms == 0 ||
-            config->acceleration_exponent == 0) {
-            return max_speed;
-        }
-        float time_fraction = (float)duration_ms / config->time_to_max_speed_ms;
-        return max_speed * powf(time_fraction, config->acceleration_exponent);
+     *if (duration_ms > config->time_to_max_speed_ms || config->time_to_max_speed_ms == 0 ||
+     *       config->acceleration_exponent == 0) {
+     *       return max_speed;
+     *   }
+     *   float time_fraction = (float)duration_ms / config->time_to_max_speed_ms;
+     *   return max_speed * powf(time_fraction, config->acceleration_exponent);
     */
 };
 
