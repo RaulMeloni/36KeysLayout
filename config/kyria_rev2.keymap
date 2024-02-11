@@ -10,8 +10,8 @@
 };
 
 &mmv {
-   time-to-max-speed-ms = <680>;
-   acceleration-exponent=<2>;
+   time-to-max-speed-ms = <300>; // Pretty understandable
+   acceleration-exponent=<0>; // if 0 it always goes at max speed, otherwise higher exponent more quickly it reaches max speed
 };
 
 / {
