@@ -49,7 +49,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        base_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
             // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
             // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
@@ -58,9 +58,24 @@
 
             bindings = <
 &none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp BSPC   &none
-&none  &kp A  &kp R  &kp S  &hm LALT T  &kp G                                                      &kp M      &hm LALT N  &kp E     &kp I    &kp O      &none
+&none  &kp A  &kp R  &hm LGUI S  &hm LALT T  &kp G                                            &kp M      &hm LALT N  &hm LGUI E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
-                     &none  &none  &to 1  &sk LSHFT  &kp ENTER  &none  &sk LCTRL  &mt LC(LS(LALT)) SPC  &none  &none
+                     &none  &none  &to 1  &kp LSHFT  &kp ESC  &kp ENTER  &kp LCTRL  &mt LC(LS(LALT)) SPC  &none  &none
+            >;
+        };
+
+        functional_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
+            // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
+            // |  Z  |  X  |  C   |  D   |  V   |  //  |  //  |              |  //  |  //  |  N   |  M    |  ,    |  .   |   /   |  //  |
+            //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+
+            bindings = <
+&trans  &kp ESC  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &mkp MB2                                 &kp N0 &kp N1  &kp N2  &kp N3  &KP 4 &trans 
+&trans  &msc SCRL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
+&trans  &msc SCRL_DOWN  &trans  &trans  &trans  &kp LGUI  &kp LALT  &trans                       &trans  &trans  &KP 5  &kp N6 &kp N7  &kp N8  &kp N9  &trans
+                                    &trans  &trans  &to 2  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
         };
 
@@ -73,13 +88,14 @@
 
             bindings = <
 &trans  &kp ESC   &kp AMPS  &kp NUBS  &kp EXCL  &kp HASH                                       &kp QMARK &kp SEMI  &kp LT   &kp GT   &trans   &trans
-&trans  &kp EQUAL &kp ATSN  &kp PIPE  &kp DQT   &kp SQT                                        &kp UNDER &kp CARET &kp LBRC &kp RBRC &kp DLLR &trans
+&trans  &kp EQUAL &kp ATSN  &hm LGUI PIPE  &hm LALT DQT   &kp SQT                                        &kp UNDER &hm LALT CARET &hm LGUI LBRC &kp RBRC &kp DLLR &trans
 &trans  &to 3     &kp GRAVE &kp TILDE &kp MINUS &kp PLUS &trans    &trans      &trans  &trans  &kp PRCNT &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
-                            &trans    &trans    &to 2    &kp LALT  &trans      &trans  &trans  &to 0     &trans    &trans
+                            &trans    &trans    &to 1    &trans  &trans      &trans  &trans  &to 0     &trans    &trans
             >;
         };
 
-        functional_layer {
+
+        f_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
             // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
             // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
@@ -87,25 +103,10 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &kp ESC  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &mkp MB2                                 &trans &trans  &trans  &trans  &trans &trans 
-&trans  &msc SCRL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
-&trans  &msc SCRL_DOWN  &trans  &trans  &trans  &trans  &trans  &trans                       &trans  &trans   &trans  &kp LA(SPACE)  &trans  &trans   &to 4   &trans
-                                    &trans  &trans  &to 2  &kp LALT  &trans                              &trans  &trans  &to 0  &trans  &trans
-            >;
-        };
-
-        numbered_layer {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
-            // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
-            // |  Z  |  X  |  C   |  D   |  V   |  //  |  //  |              |  //  |  //  |  N   |  M    |  ,    |  .   |   /   |  //  |
-            //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
-
-            bindings = <
-&trans  &kp ESC  &kp F1  &kp F2  &kp F3  &kp F4                                 &trans  &kp N7  &kp N8  &kp N9  &kp BSPC  &trans
-&trans  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9                                &kp N0  &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans  &kp F10  &kp F11  &kp F12  &kp F13  &kp F14  &trans  &trans      &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
-                         &trans  &trans   &to 2  &kp LALT  &trans          &trans  &trans  &to 0  &trans  &trans
+&trans  &kp ESC  &kp F1  &kp F2  &kp F3  &kp F4                                 &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &trans
+&trans  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9                                &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &trans
+&trans  &kp F10  &kp F11  &kp F12  &kp F13  &kp F14  &trans  &trans      &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR  &trans
+                         &to 5  &trans   &to 2  &trans  &trans          &trans  &trans  &to 0  &trans  &trans
             >;
 
             label = "num";
@@ -131,10 +132,10 @@
 
         gaming_layer {
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp E   &kp R   &kp APOS                                         &kp T   &kp Y   &kp U   &kp I      &kp O    &kp P
-&kp MINUS  &kp A  &kp S  &kp D   &kp F   &kp LBKT                                         &kp G   &kp H   &kp J   &kp K      &kp L    &kp SEMI
-&kp BSLH   &kp Z  &kp X  &kp C   &kp V   &kp RBKT  &none      &trans   &trans  &trans     &kp B   &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH
-                         &trans  &trans  &kp LALT  &kp LSHFT  &kp TAB  &trans  &kp SPACE  &trans  &trans  &trans
+&kp ESC    &kp Q  &kp W  &kp E   &kp R   &kp T                                         &kp Y   &kp U   &kp I      &kp O    &kp P    &kp LBRC
+&kp MINUS  &kp A  &kp S  &kp D   &kp F   &kp G                                         &kp H   &kp J   &kp K      &kp L    &kp SEMI &kp RBRC
+&kp BSLH   &kp Z  &kp X  &kp C   &kp V   &kp B  &none      &trans   &trans  &trans     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH &kp SQT
+                         &to 0  &trans  &kp LALT  &kp LSHFT  &kp TAB  &trans  &trans  &kp SPACE  &trans  &trans
             >;
         };
     };
