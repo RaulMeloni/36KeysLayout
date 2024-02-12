@@ -10,8 +10,8 @@
 };
 
 &mmv {
-   time-to-max-speed-ms = <300>; // Pretty understandable
-   acceleration-exponent=<0>; // if 0 it always goes at max speed, otherwise higher exponent more quickly it reaches max speed
+   time-to-max-speed-ms = <100>; // Pretty understandable
+   acceleration-exponent=<2>; // if 0 it always goes at max speed, otherwise higher exponent more quickly it reaches max speed
 
     /*
      *if (duration_ms > config->time_to_max_speed_ms || config->time_to_max_speed_ms == 0 ||
@@ -20,6 +20,7 @@
      *   }
      *   float time_fraction = (float)duration_ms / config->time_to_max_speed_ms;
      *   return max_speed * powf(time_fraction, config->acceleration_exponent);
+     *   The exponent is usually set to 0 for constant speed, 1 for uniform acceleration or 2 for uniform jerk.
     */
 };
 
@@ -58,7 +59,7 @@
 
             bindings = <
 &none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &kp BSPC   &none
-&none  &kp A  &kp R  &hm LGUI S  &hm LALT T  &kp G                                            &kp M      &hm LALT N  &hm LGUI E     &kp I    &kp O      &none
+&none  &kp A  &kp R  &hm LGUI S  &hm LALT T  &kp G                                            &hm LGUI M  &hm LALT N  &kp E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
                      &none  &none  &to 1  &kp LSHFT  &kp ESC  &kp ENTER  &kp LCTRL  &mt LC(LS(LALT)) SPC  &none  &none
             >;
@@ -72,9 +73,9 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &kp ESC  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &mkp MB2                                 &kp N0 &kp N1  &kp N2  &kp N3  &kp N4 &trans 
-&trans  &msc SCRL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mkp MB1                                  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
-&trans  &msc SCRL_DOWN  &trans  &kp LGUI  &kp LALT  &trans  &trans  &trans                       &trans  &trans  &kp N5  &kp N6 &kp N7  &kp N8  &kp N9  &trans
+&trans  &kp ESC  &kp TAB &msc SCRL_LEFT &msc SCRL_RIGHT  &mkp MB2                                 &kp N0 &kp N1  &kp N2  &kp N3  &kp N4 &trans 
+&trans  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &msc SCRL_UP                                  &mkp MB1 &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
+&trans  &msc SCRL_DOWN  &trans  &kp LGUI  &kp LALT  &msc SCRL_DOWN  &trans  &trans                       &trans  &trans  &kp N5  &kp N6 &kp N7  &kp N8  &kp N9  &trans
                                     &trans  &trans  &to 2  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
         };
@@ -89,7 +90,7 @@
             bindings = <
 &trans  &kp ESC   &kp AMPS  &kp NUBS  &kp EXCL  &kp HASH                                       &kp QMARK &kp SEMI  &kp LT   &kp GT   &trans   &trans
 &trans  &kp EQUAL &kp ATSN  &hm LGUI PIPE  &hm LALT DQT   &kp SQT                                        &kp UNDER &hm LALT CARET &hm LGUI LBRC &kp RBRC &kp DLLR &trans
-&trans  &to 3     &kp GRAVE &kp TILDE &kp MINUS &kp PLUS &trans    &trans      &trans  &trans  &kp PRCNT &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
+&trans  &to 3     &td GRAVE TILDE &kp STAR &kp MINUS &kp PLUS &trans    &trans      &trans  &trans  &kp PRCNT &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
                             &trans    &trans    &to 1    &trans  &trans      &trans  &trans  &to 0     &trans    &trans
             >;
         };
