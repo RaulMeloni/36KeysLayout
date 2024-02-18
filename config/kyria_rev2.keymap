@@ -55,7 +55,6 @@
         };
     };
 
-/ {
     combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -64,7 +63,6 @@
             bindings = <&sl 2>;
         };
     };
-};
 
     keymap {
         compatible = "zmk,keymap";
