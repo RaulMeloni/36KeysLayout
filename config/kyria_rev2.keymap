@@ -57,7 +57,7 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_esc {
+        to_symbol_layer_sticky {
             timeout-ms = <50>;
             key-positions = <42 47>;
             bindings = <&sl 2>;
@@ -76,10 +76,12 @@
 
             bindings = <
 &none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &bspc_del   &none
-&none  &kp A  &kp R  &hm LGUI S  &hm LALT T  &kp G                                            &hm LGUI M  &hm LALT N  &kp E     &kp I    &kp O      &none
-&none  &kp Z  &kp X  &kp C  &kp D  &kp V  &none           &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
+&none  &kp A  &kp R  &kp S  &hm LALT T  &hm LGUI G                                            &hm LGUI M  &hm LALT N  &kp E     &kp I    &kp O      &none
+&none  &kp Z  &kp X  &kp C  &kp D  &kp V              &none  &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
                      &none  &none  &to 1  &kp LSHFT  &kp ESC  &kp ENTER  &kp LCTRL  &mt LC(LS(LALT)) SPC  &none  &none
             >;
+
+            label = "base";
         };
 
         functional_layer {
@@ -90,11 +92,13 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &kp N0 &kp N7  &kp N8  &kp N9  &mkp MB2                                          &msc SCRL_RIGHT &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &trans &trans 
-&trans  &kp N0 &kp N4  &kp N5  &kp N6 &mkp MB1                                  &trans &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
-&trans  &kp N5 &kp N1 &kp N2  &kp N3  &trans  &trans  &trans                       &trans  &trans  &trans  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT  &trans
-                                    &trans  &trans  &to 2  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
+&trans  &kp N0 &kp N1  &kp N2  &kp N3  &kp N4                                              &msc SCRL_RIGHT &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &trans &trans 
+&trans  &kp N5 &kp N6 &kp N7  &kp N8  &kp N9                                              &kp LALT &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
+&trans  &trans &trans &trans  &kp Y  &trans          &trans  &trans   &trans  &trans          &kp LGUI  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT  &trans
+           &trans  &trans  &mkp MB1  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
+
+            label = "func";
         };
 
         symbol_layer {
@@ -105,48 +109,33 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &trans   &kp AMPS  &kp NUBS  &kp EXCL  &kp HASH                                       &kp QMARK &kp SEMI  &kp LT   &kp GT   &trans   &trans
-&trans  &kp EQUAL &kp ATSN  &hm LGUI PIPE  &hm LALT DQT   &kp SQT                                        &kp UNDER &hm LALT CARET &hm LGUI LBRC &kp RBRC &kp DLLR &trans
-&trans  &to 3     &td GRAVE TILDE &kp STAR &kp MINUS &kp PLUS &trans    &trans      &trans  &trans  &kp PRCNT &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
-                            &trans    &trans    &to 1    &trans  &trans      &trans  &trans  &to 0     &trans    &trans
+&trans  &trans   &kp AMPS  &kp NUBS  &kp EXCL  &kp HASH                                                       &kp QMARK &kp SEMI  &kp LT   &kp GT   &trans   &trans
+&trans  &kp EQUAL &kp ATSN  &kp PIPE  &hm LALT DQT   &hm LGUI SQT                                            &hm LGUI UNDER &hm LALT CARET &kp LBRC &kp RBRC &kp DLLR &trans
+&trans  &to 3     &td GRAVE TILDE &kp STAR &kp MINUS &kp PLUS         &trans  &trans  &trans  &trans          &kp PRCNT &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
+                            &trans    &trans    &to 1    &trans  &trans                      &trans  &trans  &to 0     &trans    &trans
             >;
+
+            label = "symb";
         };
 
 
         f_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  |
+            // |  Q  |  W  |  F   |  P   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |  //  | 
             // |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |  //  |
             // |  Z  |  X  |  C   |  D   |  V   |  //  |  //  |              |  //  |  //  |  N   |  M    |  ,    |  .   |   /   |  //  |
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                               &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &trans
-&trans  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9                                &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &trans
-&trans  &kp F10  &kp F11  &kp F12  &kp F13  &kp F14  &trans  &trans      &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                                               &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &trans
+&trans  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9                                                &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &trans
+&trans  &kp F10  &kp F11  &kp F12  &kp F13  &kp F14      &trans  &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR  &trans
                          &to 5  &trans   &to 2  &trans  &trans          &trans  &trans  &to 0  &trans  &trans
             >;
 
-            label = "num";
+            label = "fk";
         };
 
-
-        bluetooth_layer {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |       |      |BT_CLR|BTSEL0|BTSEL1|BTSEL2|                                         |      |      |      |      |      |      |
-            // |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      |
-            // |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
-            //                       |      |      |      |      |      |      |      |      |      |      |      |      |
-
-            bindings = <
-&none  &none         &none         &none         &none         &none                                     &none       &none  &none  &none  &none  &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                              &bt BT_CLR  &none  &none  &none  &none  &none
-&none  &none         &none         &none         &none         &none         &none  &none  &none  &none  &none       &none  &none  &none  &none  &none
-                                   &none         &none         &none         &none  &none  &none  &none  &to 0       &none  &none
-            >;
-
-            label = "bt";
-        };
 
         gaming_layer {
             bindings = <
