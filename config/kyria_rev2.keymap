@@ -78,7 +78,7 @@
 &none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &bspc_del   &none
 &none  &kp A  &kp R  &kp S  &hm LALT T  &hm LGUI G                                            &hm LGUI M  &hm LALT N  &kp E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V              &none  &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
-                     &none  &none  &to 1  &kp LSHFT  &kp ESC  &kp ENTER  &kp LCTRL  &mt LC(LS(LALT)) SPC  &none  &none
+                     &none  &none  &to 1  &kp LCTRL  &kp ESC  &kp ENTER  &kp LSHIFT  &mt LC(LS(LALT)) SPC  &none  &none
             >;
 
             label = "base";
@@ -109,9 +109,9 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &trans   &kp AMPS  &kp NUBS  &kp EXCL  &kp HASH                                                       &kp QMARK &kp SEMI  &kp LT   &kp GT   &trans   &trans
-&trans  &kp EQUAL &kp ATSN  &kp PIPE  &hm LALT DQT   &hm LGUI SQT                                            &hm LGUI UNDER &hm LALT CARET &kp LBRC &kp RBRC &kp DLLR &trans
-&trans  &to 3     &td GRAVE TILDE &kp STAR &kp MINUS &kp PLUS         &trans  &trans  &trans  &trans          &kp PRCNT &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
+&trans  &kp HASH   &kp AMPS  &kp PIPE  &kp EXCL  &kp QMARK                                                       &kp SQT &kp NUBS  &kp LT   &kp GT   &trans   &trans
+&trans  &kp PRCNT  &kp COLON  &kp EQUAL &hm LALT UNDER &hm LGUI SEMI                                            &hm LGUI DQT &hm LALT CARET &kp LBRC &kp RBRC &kp DLLR &trans
+&trans  &to 3  &kp STAR &kp MINUS &kp PLUS   &td GRAVE TILDE          &trans  &trans  &trans  &trans          &kp ATSN &kp LBKT  &kp LPRN &kp RPRN &kp RBKT &trans
                             &trans    &trans    &to 1    &trans  &trans                      &trans  &trans  &to 0     &trans    &trans
             >;
 
@@ -130,7 +130,7 @@
 &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                                               &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &trans
 &trans  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9                                                &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &trans
 &trans  &kp F10  &kp F11  &kp F12  &kp F13  &kp F14      &trans  &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR  &trans
-                         &to 5  &trans   &to 2  &trans  &trans          &trans  &trans  &to 0  &trans  &trans
+                         &to 4  &trans   &to 2  &trans  &trans          &trans  &trans  &to 0  &trans  &trans
             >;
 
             label = "fk";
