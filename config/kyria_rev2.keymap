@@ -146,4 +146,18 @@
             >;
         };
     };
+
+input_configs {
+        compatible = "zmk,input-configs";
+
+        mmv_input_listener {
+            compatible = "zmk,input-listener";
+            device = <&mmv>;
+        };
+
+        msc_input_listener {
+            compatible = "zmk,input-listener";
+            device = <&msc>;
+        };
+    };
 };
