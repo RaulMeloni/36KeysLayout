@@ -149,4 +149,12 @@
             >;
         };
     };
+
+input_configs {
+        compatible = "zmk,input-configs";
+
+        mmv {
+            device = <&mmv>;
+        };
+    };
 };
