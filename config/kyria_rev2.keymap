@@ -28,6 +28,11 @@
     */
 };
 
+&msc {
+     time-to-max-speed-ms = <300>;
+    acceleration-exponent = <0>;
+};
+
 / {
     behaviors {
         hm: homerow_mods {
@@ -110,7 +115,7 @@
            &trans  &trans  &mkp MB1  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
 
-            label = "func";
+            label = "fnc";
         };
 
         symbol_layer {
