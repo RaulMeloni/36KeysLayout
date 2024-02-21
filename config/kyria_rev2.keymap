@@ -57,6 +57,14 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
+
+        sticky_to_layer1: lyr1 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&sl 1>, <&to 1>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
+        };
     };
 
     combos {
@@ -82,7 +90,7 @@
 &none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &bspc_del   &none
 &none  &kp A  &kp R  &kp S  &hm LALT T  &hm LGUI G                                            &hm LGUI M  &hm LALT N  &kp E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V              &none  &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
-                     &none  &none  &to 1  &kp LCTRL  &kp ESC  &kp ENTER  &kp LSHIFT  &mt LC(LS(LALT)) SPC  &none  &none
+                     &none  &none  &lyr1  &kp LCTRL  &kp ESC  &kp ENTER  &kp LSHIFT  &mt LC(LS(LALT)) SPC  &none  &none
             >;
 
             label = "base";
