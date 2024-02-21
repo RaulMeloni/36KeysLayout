@@ -39,7 +39,7 @@
             keep-mods = <(MOD_RSFT)>;
         };
 
-        sticky_to_layer1: lyr1 {
+        lyr1: sticky_to_layer1 {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&sl 1>, <&to 1>;
