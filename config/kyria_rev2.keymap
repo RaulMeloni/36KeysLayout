@@ -35,6 +35,10 @@
     acceleration-exponent = <2>;
 };
 
+&sl {
+    ignore-modifiers;
+};
+
 / {
     behaviors {
         hm: homerow_mods {
@@ -80,6 +84,12 @@
             timeout-ms = <50>;
             key-positions = <42 47>;
             bindings = <&sl 2>;
+        };
+
+        to_func_layer_sticky {
+            timeout-ms = <50>;
+            key-positions = <15 42>;
+            bindings = <&sl 3>;
         };
     };
 
