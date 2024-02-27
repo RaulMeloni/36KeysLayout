@@ -87,7 +87,7 @@
         };
 
         to_func_layer_sticky {
-            timeout-ms = <50>;
+            timeout-ms = <5000>;
             key-positions = <15 42>;
             bindings = <&sl 3>;
         };
@@ -107,7 +107,7 @@
 &none  &kp Q  &kp W  &kp F  &kp P  &kp B                                                      &kp J      &kp L  &kp U     &kp Y    &bspc_del   &none
 &none  &kp A  &kp R  &kp S  &hm LALT T  &hm LGUI G                                            &hm LGUI M  &hm LALT N  &kp E     &kp I    &kp O      &none
 &none  &kp Z  &kp X  &kp C  &kp D  &kp V              &none  &none      &none  &none             &kp K      &kp H  &kp FSLH  &kp DOT  &kp COMMA  &none
-                     &none  &none  &lyr1  &kp LCTRL  &kp ESC  &kp ENTER  &kp LSHIFT  &mt LC(LS(LALT)) SPC  &none  &none
+                     &none  &none  &lyr1  &kp LCTRL  &kp ENTER  &kp ESC  &kp LSHIFT  &mt LC(LS(LALT)) SPC  &none  &none
             >;
 
             label = "base";
@@ -124,7 +124,7 @@
 &trans  &kp N0 &kp N1  &kp N2  &kp N3  &kp N4                                              &msc SCRL_RIGHT &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &trans &trans 
 &trans  &kp N5 &kp N6 &kp N7  &hm LALT N8  &hm LGUI N9                                              &kp TAB &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans 
 &trans  &trans &trans &trans  &kp Y  &trans          &trans  &trans   &trans  &trans          &mkp MB2  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT  &trans
-           &trans  &trans  &mkp MB1  &trans  &trans                              &kp LS(ENTER)  &trans  &to 0  &trans  &trans
+           &trans  &trans  &mkp MB1  &trans  &trans                              &trans  &trans  &to 0  &trans  &trans
             >;
 
             label = "fnc";
@@ -156,9 +156,9 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                                               &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &trans
-&trans  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9                                                &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &trans
-&trans  &kp F10  &kp F11  &kp F12  &kp F13  &kp F14      &trans  &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                                               &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &trans
+&trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10                                                &bt BT_CLR  &kp F21  &kp F22  &kp F23  &kp F24  &trans
+&transx  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15      &trans  &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
                          &to 4  &trans   &to 2  &trans  &trans          &trans  &trans  &to 0  &trans  &trans
             >;
 
